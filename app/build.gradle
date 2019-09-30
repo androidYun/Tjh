@@ -1,0 +1,38 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.zy.tjh"
+        minSdkVersion 18
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation deps.supports.junit
+    implementation deps.supports.runner
+    implementation deps.supports.espresso
+    implementation deps.supports.appcompat
+    implementation deps.supports.constraint_layout
+    implementation deps.supports.design
+    implementation deps.supports.recyclerview
+    implementation deps.supports.v4
+    implementation deps.supports.design
+    implementation deps.kotlin.stdlib
+    implementation files('libs/libammsdk.jar')
+    implementation files('libs/wechat-sdk-android-with-mta-1.0.2.jar')
+    compile (name: 'alipaySdk-15.6.5-20190718211148', ext: 'aar')
+}
